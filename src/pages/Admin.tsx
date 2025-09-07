@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
-import { Shield, AlertTriangle, FileText, Users, Settings, Bell, TrendingUp, MapPin, Calendar, Filter, ExternalLink, ArrowRight, Building, Construction, Scale, BookOpen } from 'lucide-react';
+import { Shield, AlertTriangle, FileText, Users, Settings, Bell, TrendingUp, MapPin, Calendar, Filter, ExternalLink, ArrowRight, Building, Construction, Scale, BookOpen, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
@@ -159,7 +159,6 @@ const Admin: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-6 bg-gray-100 dark:bg-gray-800">
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Dashboard</TabsTrigger>
             <TabsTrigger value="dashboard" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Dashboard</TabsTrigger>
             <TabsTrigger value="rules" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Rules</TabsTrigger>
             <TabsTrigger value="alerts" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Alerts</TabsTrigger>
@@ -374,160 +373,6 @@ const Admin: React.FC = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="state-ai" className="space-y-6">
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                State AI Instances
-              </h2>
-              <p className="text-gray-600 dark:text-gray-400">
-                Access specialized AI assistants for each jurisdiction's compliance requirements
-              </p>
-            </div>
-
-            {/* Production Ready States */}
-            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-green-700 dark:text-green-300">Production Ready States</CardTitle>
-                <CardDescription>Fully operational AI assistants with comprehensive rule sets</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Kentucky AI instance */}}
-                  >
-                    Ask Kentucky
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Florida AI instance */}}
-                  >
-                    Ask Florida
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Texas AI instance */}}
-                  >
-                    Ask Texas
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to California AI instance */}}
-                  >
-                    Ask California
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Colorado AI instance */}}
-                  >
-                    Ask Colorado
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to North Carolina AI instance */}}
-                  >
-                    Ask North Carolina
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Louisiana AI instance */}}
-                  >
-                    Ask Louisiana
-                  </Button>
-                  <Button 
-                    className="bg-green-600 hover:bg-green-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to New York AI instance */}}
-                  >
-                    Ask New York
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Beta/Restricted States */}
-            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-yellow-700 dark:text-yellow-300">Beta/Restricted States</CardTitle>
-                <CardDescription>Limited operations - review special conditions</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  <Button 
-                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Nevada AI instance */}}
-                  >
-                    Ask Nevada
-                  </Button>
-                  <Button 
-                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Delaware AI instance */}}
-                  >
-                    Ask Delaware
-                  </Button>
-                  <Button 
-                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Hawaii AI instance */}}
-                  >
-                    Ask Hawaii
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Prohibited States */}
-            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-red-700 dark:text-red-300">Prohibited States</CardTitle>
-                <CardDescription>Public adjusting prohibited - legal analysis only</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  <Button 
-                    className="bg-red-600 hover:bg-red-700 text-white h-12"
-                    onClick={() => {/* TODO: Connect to Alabama AI instance for legal analysis */}}
-                  >
-                    Ask Alabama (Legal)
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Coming Soon States */}
-            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="text-gray-700 dark:text-gray-300">Coming Soon</CardTitle>
-                <CardDescription>AI instances under development</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  <Button 
-                    disabled
-                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
-                  >
-                    Ask Idaho
-                  </Button>
-                  <Button 
-                    disabled
-                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
-                  >
-                    Ask Montana
-                  </Button>
-                  <Button 
-                    disabled
-                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
-                  >
-                    Ask Wyoming
-                  </Button>
-                  <Button 
-                    disabled
-                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
-                  >
-                    Ask North Dakota
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </TabsContent>
           <TabsContent value="rules">
             <EnhancedStateRuleManager
               rules={selectedState === 'all' ? rules : rules.filter(r => r.state === selectedState)}
@@ -717,6 +562,138 @@ const Admin: React.FC = () => {
                 </p>
               </div>
             )}
+          </TabsContent>
+
+          <TabsContent value="state-ai" className="space-y-6">
+            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <CardHeader>
+                <CardTitle className="flex items-center text-gray-900 dark:text-white">
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  State-Specific AI Assistants
+                </CardTitle>
+                <CardDescription className="text-gray-600 dark:text-gray-400">
+                  Access dedicated AI assistants trained on state-specific compliance rules and regulations
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {/* Active Production States */}
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Kentucky AI click */}}
+                  >
+                    <span className="font-bold">Ask Kentucky</span>
+                    <span className="text-xs opacity-90">KY Compliance AI</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Florida AI click */}}
+                  >
+                    <span className="font-bold">Ask Florida</span>
+                    <span className="text-xs opacity-90">FL Compliance AI</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Texas AI click */}}
+                  >
+                    <span className="font-bold">Ask Texas</span>
+                    <span className="text-xs opacity-90">TX Compliance AI</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle California AI click */}}
+                  >
+                    <span className="font-bold">Ask California</span>
+                    <span className="text-xs opacity-90">CA Compliance AI</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Colorado AI click */}}
+                  >
+                    <span className="font-bold">Ask Colorado</span>
+                    <span className="text-xs opacity-90">CO Compliance AI</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-green-600 hover:bg-green-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle North Carolina AI click */}}
+                  >
+                    <span className="font-bold">Ask North Carolina</span>
+                    <span className="text-xs opacity-90">NC Compliance AI</span>
+                  </Button>
+
+                  {/* Beta/Restricted States */}
+                  <Button 
+                    className="h-16 bg-yellow-600 hover:bg-yellow-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Nevada AI click */}}
+                  >
+                    <span className="font-bold">Ask Nevada</span>
+                    <span className="text-xs opacity-90">NV Compliance AI (Beta)</span>
+                  </Button>
+
+                  {/* Prohibited States */}
+                  <Button 
+                    className="h-16 bg-red-600 hover:bg-red-700 text-white flex flex-col items-center justify-center"
+                    onClick={() => {/* Handle Alabama AI click */}}
+                  >
+                    <span className="font-bold">Ask Alabama</span>
+                    <span className="text-xs opacity-90">AL Legal Analysis</span>
+                  </Button>
+
+                  {/* Coming Soon States */}
+                  <Button 
+                    className="h-16 bg-gray-400 hover:bg-gray-500 text-white flex flex-col items-center justify-center"
+                    disabled
+                  >
+                    <span className="font-bold">Ask Idaho</span>
+                    <span className="text-xs opacity-90">Coming Soon</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-gray-400 hover:bg-gray-500 text-white flex flex-col items-center justify-center"
+                    disabled
+                  >
+                    <span className="font-bold">Ask Montana</span>
+                    <span className="text-xs opacity-90">Coming Soon</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-gray-400 hover:bg-gray-500 text-white flex flex-col items-center justify-center"
+                    disabled
+                  >
+                    <span className="font-bold">Ask Wyoming</span>
+                    <span className="text-xs opacity-90">Coming Soon</span>
+                  </Button>
+
+                  <Button 
+                    className="h-16 bg-gray-400 hover:bg-gray-500 text-white flex flex-col items-center justify-center"
+                    disabled
+                  >
+                    <span className="font-bold">Ask North Dakota</span>
+                    <span className="text-xs opacity-90">Coming Soon</span>
+                  </Button>
+                </div>
+
+                <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-green-500 rounded"></div>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Production Ready - Full AI Available</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-yellow-500 rounded"></div>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Beta/Restricted - Limited AI</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-red-500 rounded"></div>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Prohibited - Legal Analysis Only</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-6">
