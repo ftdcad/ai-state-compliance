@@ -160,9 +160,12 @@ const Admin: React.FC = () => {
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-5 bg-gray-100 dark:bg-gray-800">
             <TabsTrigger value="dashboard" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Dashboard</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-6 bg-gray-100 dark:bg-gray-800">
+            <TabsTrigger value="dashboard" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Dashboard</TabsTrigger>
             <TabsTrigger value="rules" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Rules</TabsTrigger>
             <TabsTrigger value="alerts" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Alerts</TabsTrigger>
             <TabsTrigger value="templates" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Templates</TabsTrigger>
+            <TabsTrigger value="state-ai" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">State AI</TabsTrigger>
             <TabsTrigger value="settings" className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-700">Settings</TabsTrigger>
           </TabsList>
 
