@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
 import { Shield, AlertTriangle, FileText, Users, Settings, Bell, TrendingUp, MapPin, Calendar, Filter, ExternalLink, ArrowRight, Building, Construction, Scale, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
