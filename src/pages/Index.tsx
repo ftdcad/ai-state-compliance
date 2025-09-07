@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, FileText, AlertTriangle, Users, ArrowRight, Zap, Globe, Lock, BookOpen } from 'lucide-react';
+import { Shield, FileText, AlertTriangle, Users, ArrowRight, Zap, Globe, Lock, BookOpen, Settings } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { ThemeToggle } from '../components/ui/theme-toggle';
