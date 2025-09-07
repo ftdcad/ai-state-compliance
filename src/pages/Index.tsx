@@ -59,8 +59,8 @@ const Index: React.FC = () => {
               </Link>
               <Link to="/admin/details">
                 <Button size="lg" variant="outline" className="px-8 py-3 rounded-lg text-lg border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
-                  <Lock className="h-5 w-5 mr-2" />
-                  Admin Access
+                  <Settings className="h-5 w-5 mr-2" />
+                  Admin Dashboard
                 </Button>
               </Link>
             </div>

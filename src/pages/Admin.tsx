@@ -11,7 +11,6 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
 import { ThemeToggle } from '../components/ui/theme-toggle';
-import PinProtection from '../components/PinProtection';
 import EnhancedStateRuleManager from '../components/EnhancedStateRuleManager';
 import AlertSourceModal from '../components/AlertSourceModal';
 import { StateRule, ComplianceAlert, AITemplate, SystemMetrics } from '../types/admin';
@@ -21,7 +20,6 @@ import { getPriorityColor, getConfidenceColor, formatDateTime } from '../lib/uti
 
 const Admin: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [authenticated, setAuthenticated] = useState(false);
   const [rules, setRules] = useState<StateRule[]>(sampleRules);
   const [alerts, setAlerts] = useState<ComplianceAlert[]>(sampleAlerts);
   const [templates, setTemplates] = useState<AITemplate[]>(sampleTemplates);
@@ -107,10 +105,6 @@ const Admin: React.FC = () => {
     setActiveTab('rules');
   };
 
-  if (!authenticated) {
-    return <PinProtection onAuthenticate={setAuthenticated} />;
-  }
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
@@ -152,10 +146,9 @@ const Admin: React.FC = () => {
               </Link>
               <Button
                 variant="outline"
-                onClick={() => setAuthenticated(false)}
                 className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800"
               >
-                Logout
+                <Link to="/">Back to Home</Link>
               </Button>
             </div>
           </div>
