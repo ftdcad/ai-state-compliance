@@ -374,6 +374,160 @@ const Admin: React.FC = () => {
             </Card>
           </TabsContent>
 
+          <TabsContent value="state-ai" className="space-y-6">
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                State AI Instances
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400">
+                Access specialized AI assistants for each jurisdiction's compliance requirements
+              </p>
+            </div>
+
+            {/* Production Ready States */}
+            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-green-700 dark:text-green-300">Production Ready States</CardTitle>
+                <CardDescription>Fully operational AI assistants with comprehensive rule sets</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Kentucky AI instance */}}
+                  >
+                    Ask Kentucky
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Florida AI instance */}}
+                  >
+                    Ask Florida
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Texas AI instance */}}
+                  >
+                    Ask Texas
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to California AI instance */}}
+                  >
+                    Ask California
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Colorado AI instance */}}
+                  >
+                    Ask Colorado
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to North Carolina AI instance */}}
+                  >
+                    Ask North Carolina
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Louisiana AI instance */}}
+                  >
+                    Ask Louisiana
+                  </Button>
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to New York AI instance */}}
+                  >
+                    Ask New York
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Beta/Restricted States */}
+            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-yellow-700 dark:text-yellow-300">Beta/Restricted States</CardTitle>
+                <CardDescription>Limited operations - review special conditions</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <Button 
+                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Nevada AI instance */}}
+                  >
+                    Ask Nevada
+                  </Button>
+                  <Button 
+                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Delaware AI instance */}}
+                  >
+                    Ask Delaware
+                  </Button>
+                  <Button 
+                    className="bg-yellow-600 hover:bg-yellow-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Hawaii AI instance */}}
+                  >
+                    Ask Hawaii
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Prohibited States */}
+            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-red-700 dark:text-red-300">Prohibited States</CardTitle>
+                <CardDescription>Public adjusting prohibited - legal analysis only</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <Button 
+                    className="bg-red-600 hover:bg-red-700 text-white h-12"
+                    onClick={() => {/* TODO: Connect to Alabama AI instance for legal analysis */}}
+                  >
+                    Ask Alabama (Legal)
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Coming Soon States */}
+            <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
+              <CardHeader>
+                <CardTitle className="text-gray-700 dark:text-gray-300">Coming Soon</CardTitle>
+                <CardDescription>AI instances under development</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <Button 
+                    disabled
+                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
+                  >
+                    Ask Idaho
+                  </Button>
+                  <Button 
+                    disabled
+                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
+                  >
+                    Ask Montana
+                  </Button>
+                  <Button 
+                    disabled
+                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
+                  >
+                    Ask Wyoming
+                  </Button>
+                  <Button 
+                    disabled
+                    className="bg-gray-400 text-white h-12 cursor-not-allowed opacity-60"
+                  >
+                    Ask North Dakota
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
           <TabsContent value="rules">
             <EnhancedStateRuleManager
               rules={selectedState === 'all' ? rules : rules.filter(r => r.state === selectedState)}
