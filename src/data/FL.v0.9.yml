@@ -1,0 +1,280 @@
+# Florida Public Adjuster Compliance Rules v0.9
+# Last Updated: 2025-06-12
+# Authority: Florida Department of Financial Services
+
+metadata:
+  state: FL
+  version: "0.9"
+  last_updated: "2025-06-12T10:00:00Z"
+  authority: "Florida Department of Financial Services"
+  effective_date: "2025-01-01T00:00:00Z"
+
+rules:
+  # ------------------------
+  # 1. Licensing & Bonding
+  # ------------------------
+  - state: FL
+    rule_id: FL-PUBADJ-LIC-001
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Public Adjuster"
+    subcategory: "Licensing"
+    text: |
+      Public adjusters must hold a license under § 626.865.  
+      A $50,000 surety bond is required at application and must remain in force
+      for the life of the license and 1 year after termination.
+    sources:
+      - "626.865 Fla. Stat."
+    tests:
+      - given: { licensed: false }
+        expect: FAIL
+        description: "Unlicensed adjuster should fail compliance"
+      - given: { bond_amount: 25000 }
+        expect: FAIL
+        description: "Insufficient bond amount should fail"
+      - given: { licensed: true, bond_amount: 50000 }
+        expect: PASS
+        description: "Licensed adjuster with proper bond should pass"
+
+  # ------------------------
+  # 2. Fee caps (10% / 20%)
+  # ------------------------
+  - state: FL
+    rule_id: FL-PUBADJ-FEES-002
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Public Adjuster"
+    subcategory: "Fees"
+    text: |
+      • Claims from events under a Governor‑declared state of emergency—
+        fee ≤ 10% of amounts paid, for one year after the event.  
+      • All other claims—fee ≤ 20%.  
+      • Reopened or supplemental claims—cap remains 20%.  
+      Compensation may not be based on deductibles. § 626.854(11)(b).
+    sources:
+      - "626.854 Fla. Stat."
+    tests:
+      - given: { cat_event: true, fee_pct: 11 }
+        expect: FAIL
+        description: "Excessive emergency event fee should fail"
+      - given: { cat_event: false, fee_pct: 18 }
+        expect: PASS
+        description: "Compliant non-emergency fee should pass"
+      - given: { reopened: true, fee_pct: 25 }
+        expect: FAIL
+        description: "Excessive reopened claim fee should fail"
+
+  # ------------------------
+  # 3. Contract rules & rescission
+  # ------------------------
+  - state: FL
+    rule_id: FL-PUBADJ-CONTRACT-003
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Public Adjuster"
+    subcategory: "Contracts"
+    text: |
+      • Insured may cancel the PA contract without penalty **within 10 calendar
+        days** of execution (30 days after loss if the claim stems from a declared
+        emergency). § 626.854(7).  
+      • No solicitation Sun / after 8 p.m. (§ 626.854(5)).  
+      • No face‑to‑face or phone solicitation until **48 hours** after the event
+        unless the insured initiates contact (§ 626.854(6)).  
+      • Contract must be on DFS‑approved form and contain the statutory 18‑pt
+        cancellation notice.
+    sources:
+      - "626.854 (5)‑(7) Fla. Stat."
+    tests:
+      - given: { cancel_days: 8 }
+        expect: FULL_REFUND
+        description: "Timely cancellation allows full refund"
+      - given: { solicitation_hours: "21:00" }
+        expect: FAIL
+        description: "Evening solicitation should fail"
+      - given: { hours_after_event: 30, solicitation: true }
+        expect: PASS
+        description: "Solicitation after 48-hour restriction should pass"
+
+  # ------------------------
+  # 4. 90‑day "prompt‑pay" rule
+  # ------------------------
+  - state: FL
+    rule_id: FL-CARRIER-PAY-004
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Insurance Carrier"
+    subcategory: "Payment Obligations"
+    text: |
+      Within **90 days** of receiving notice of an initial, reopened, or
+      supplemental property claim, the insurer must pay or deny all or part of
+      it, unless factors beyond the insurer's control reasonably prevent payment.
+      Late payments bear statutory interest from the notice date. § 627.70131(7)(a).
+    sources:
+      - "627.70131 (7)(a) Fla. Stat."
+    tests:
+      - given: { days_since_notice: 95, no_exception: true }
+        expect: FAIL
+        description: "Late payment without exception should fail"
+      - given: { days_since_notice: 70 }
+        expect: PASS
+        description: "Timely payment should pass"
+
+  # ------------------------
+  # 5. 7‑day ack & 30‑day inspection
+  # ------------------------
+  - state: FL
+    rule_id: FL-CARRIER-ACK-005
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Insurance Carrier"
+    subcategory: "Communication"
+    text: |
+      • Insurer must acknowledge claim communications in **7 days**.  
+      • Physical inspection, if required, must occur within **30 days** of
+        proof‑of‑loss. § 627.70131(1) & (3)(b).
+    sources:
+      - "627.70131 Fla. Stat."
+    tests:
+      - given: { ack_days: 10 }
+        expect: FAIL
+        description: "Late acknowledgment should fail"
+      - given: { inspection_days: 25 }
+        expect: PASS
+        description: "Timely inspection should pass"
+
+  # ------------------------
+  # 6. One‑way attorney‑fee repeal
+  # ------------------------
+  - state: FL
+    rule_id: FL-LAW-FEES-006
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Legal Framework"
+    subcategory: "Attorney Fees"
+    text: |
+      SB 2‑A (Dec 2022) repealed the one‑way attorney‑fee statutes (§§ 627.428,
+      626.9373, 627.70152) for residential and commercial property suits.
+      Property policyholders now bear their own fees unless another statute or
+      the policy shifts them.
+    sources:
+      - "SB 2‑A bill summary"
+    tests:
+      - given: { seeks_one_way_fees: true }
+        expect: DENY
+        description: "One-way attorney fee claims should be denied"
+
+  # ------------------------
+  # 7. Notice of claim deadlines
+  # ------------------------
+  - state: FL
+    rule_id: FL-PROP-NOTICE-007
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Property Claims"
+    subcategory: "Notice Requirements"
+    text: |
+      A property claim is barred unless notice is given **within 1 year** of the
+      date of loss; supplemental claims within **18 months**. § 627.70132(2).
+    sources:
+      - "627.70132 (2) Fla. Stat."
+    tests:
+      - given: { notice_days: 400 }
+        expect: FAIL
+        description: "Late notice should fail"
+      - given: { notice_days: 200 }
+        expect: PASS
+        description: "Timely notice should pass"
+
+  # ------------------------
+  # 8. 25% roof rule repeal
+  # ------------------------
+  - state: FL
+    rule_id: FL-PROP-ROOF-008
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: "2028-05-26"
+    category: "Property Claims"
+    subcategory: "Roof Requirements"
+    text: |
+      SB 4‑D (2022) amended FBC § 706.1.1: when ≥ 25% of a roof section is
+      repaired, only that section must meet current code **if** the roof was
+      built or replaced to the 2007 FBC (3‑1‑2009) or later. Full replacement
+      is no longer automatic.
+    sources:
+      - "SB 4‑D summary"
+    tests:
+      - given: { roof_percent: 30, year_built: 2015 }
+        expect: SECTION_ONLY
+        description: "Recent roof allows section-only replacement"
+      - given: { roof_percent: 30, year_built: 2000 }
+        expect: FULL_REPLACE
+        description: "Older roof requires full replacement"
+
+  # ------------------------
+  # 9. Solicitation hours
+  # ------------------------
+  - state: FL
+    rule_id: FL-PUBADJ-SOLICIT-009
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: STATUTE
+    confidence: HIGH
+    sunset: null
+    category: "Public Adjuster"
+    subcategory: "Solicitation"
+    text: |
+      No PA solicitation on Sundays. Mon‑Sat only, between 8 a.m.–8 p.m.
+      (§ 626.854(5)).
+    sources:
+      - "626.854 (5) Fla. Stat."
+    tests:
+      - given: { day: "Sunday" }
+        expect: FAIL
+        description: "Sunday solicitation should fail"
+      - given: { hour: "19:00" }
+        expect: PASS
+        description: "Permitted hour solicitation should pass"
+
+  # ------------------------
+  # 10. DFS contact info
+  # ------------------------
+  - state: FL
+    rule_id: FL-RES-DFS-010
+    version: "0.9"
+    last_updated: "2025-06-12"
+    authority_level: AGENCY
+    confidence: HIGH
+    sunset: null
+    category: "Professional Resources"
+    subcategory: "Contact Information"
+    text: |
+      Florida Department of Financial Services – Division of Insurance Agent &
+      Agency Services  
+      200 E. Gaines St., Tallahassee FL 32399  
+      Licensing: (850) 413‑3137 | Consumer Helpline: (877) 693‑5236
+    sources:
+      - "DFS website contact page"
+    tests: []

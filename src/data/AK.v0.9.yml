@@ -1,0 +1,167 @@
+# Alaska Public Adjuster Compliance Rules v0.9
+# Last Updated: 2024-01-15
+# Authority: Alaska Division of Insurance
+
+metadata:
+  state: AK
+  version: "0.9"
+  last_updated: "2024-01-15T10:00:00Z"
+  authority: "Alaska Division of Insurance"
+  effective_date: "2024-01-01T00:00:00Z"
+
+rules:
+  - rule_id: "AK-PUBADJ-LIC-001"
+    category: "Public Adjuster"
+    subcategory: "Licensing"
+    authority_level: "STATUTE"
+    confidence: "HIGH"
+    text: "Public adjusters must be licensed by the Alaska Division of Insurance before conducting business in the state."
+    sources:
+      - "Alaska Statute 21.27.010"
+      - "Alaska Administrative Code 3 AAC 26.010"
+    tests:
+      - id: "test-001"
+        description: "Verify public adjuster has valid Alaska license"
+        expected_result: "License number and expiration date verified in state database"
+        test_type: "VALIDATION"
+
+  - rule_id: "AK-PUBADJ-FEES-002"
+    category: "Public Adjuster"
+    subcategory: "Fees"
+    authority_level: "REG"
+    confidence: "HIGH"
+    text: "Public adjusters may not charge fees exceeding 10% of the settlement amount for claims under $100,000."
+    sources:
+      - "3 AAC 26.020"
+    tests:
+      - id: "test-002"
+        description: "Verify fee percentage complies with state limits"
+        expected_result: "Fee percentage does not exceed 10% for claims under $100,000"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-PUBADJ-BOND-003"
+    category: "Public Adjuster"
+    subcategory: "Bonding"
+    authority_level: "STATUTE"
+    confidence: "HIGH"
+    text: "Public adjusters must maintain a surety bond of $20,000 or errors and omissions insurance of $50,000."
+    sources:
+      - "Alaska Statute 21.27.030"
+    tests:
+      - id: "test-003"
+        description: "Verify active bond or E&O insurance"
+        expected_result: "Active bond of $20,000 or E&O insurance of $50,000"
+        test_type: "VALIDATION"
+
+  - rule_id: "AK-PUBADJ-CONT-004"
+    category: "Public Adjuster"
+    subcategory: "Contracts"
+    authority_level: "REG"
+    confidence: "HIGH"
+    text: "Public adjuster contracts must be in writing and include specific disclosure requirements."
+    sources:
+      - "3 AAC 26.030"
+    tests:
+      - id: "test-004"
+        description: "Verify contract contains required disclosures"
+        expected_result: "Contract includes all mandatory disclosure elements"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-PUBADJ-SOL-005"
+    category: "Public Adjuster"
+    subcategory: "Solicitation"
+    authority_level: "STATUTE"
+    confidence: "MEDIUM"
+    text: "Public adjusters may not solicit clients during the first 48 hours after a natural disaster declaration."
+    sources:
+      - "Alaska Statute 21.27.040"
+    sunset: "2024-12-31T23:59:59Z"
+    tests:
+      - id: "test-005"
+        description: "Verify solicitation timing after disaster declaration"
+        expected_result: "No solicitation within 48 hours of disaster declaration"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-CARRIER-EXAM-006"
+    category: "Insurance Carrier"
+    subcategory: "Examination"
+    authority_level: "STATUTE"
+    confidence: "HIGH"
+    text: "Insurance carriers must allow reasonable examination of damaged property by public adjusters."
+    sources:
+      - "Alaska Statute 21.96.020"
+    tests:
+      - id: "test-006"
+        description: "Verify carrier provides reasonable access for examination"
+        expected_result: "Carrier allows timely and reasonable property examination"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-CARRIER-TIME-007"
+    category: "Insurance Carrier"
+    subcategory: "Timeframes"
+    authority_level: "REG"
+    confidence: "HIGH"
+    text: "Insurance carriers must acknowledge receipt of claim within 15 days and complete investigation within 30 days."
+    sources:
+      - "3 AAC 26.040"
+    tests:
+      - id: "test-007"
+        description: "Verify carrier meets acknowledgment and investigation timeframes"
+        expected_result: "Acknowledgment within 15 days, investigation within 30 days"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-LEGAL-STAT-008"
+    category: "Legal Framework"
+    subcategory: "Statute of Limitations"
+    authority_level: "STATUTE"
+    confidence: "HIGH"
+    text: "Actions on insurance policies must be commenced within 6 years after the cause of action accrues."
+    sources:
+      - "Alaska Statute 09.10.070"
+    tests:
+      - id: "test-008"
+        description: "Verify action filed within statute of limitations"
+        expected_result: "Action commenced within 6 years of cause of action accrual"
+        test_type: "VALIDATION"
+
+  - rule_id: "AK-CONST-WIND-009"
+    category: "Construction Standards"
+    subcategory: "Wind Resistance"
+    authority_level: "ADVISORY"
+    confidence: "MEDIUM"
+    text: "Buildings should be constructed to withstand wind loads according to Alaska Building Code requirements."
+    sources:
+      - "Alaska Building Code Section 1609"
+    tests:
+      - id: "test-009"
+        description: "Verify construction meets wind load requirements"
+        expected_result: "Building design complies with Alaska Building Code wind load standards"
+        test_type: "VALIDATION"
+
+  - rule_id: "AK-PROF-CONT-010"
+    category: "Professional Resources"
+    subcategory: "Continuing Education"
+    authority_level: "REG"
+    confidence: "HIGH"
+    text: "Public adjusters must complete 20 hours of continuing education every 2 years."
+    sources:
+      - "3 AAC 26.050"
+    tests:
+      - id: "test-010"
+        description: "Verify completion of continuing education requirements"
+        expected_result: "20 hours of CE completed within 2-year period"
+        test_type: "COMPLIANCE"
+
+  - rule_id: "AK-PROF-CERT-011"
+    category: "Professional Resources"
+    subcategory: "Certification"
+    authority_level: "CASE"
+    confidence: "MEDIUM"
+    text: "Courts may require professional certification for expert witness testimony in construction defect cases."
+    sources:
+      - "Alaska Supreme Court Case No. S-16789 (2023)"
+    tests:
+      - id: "test-011"
+        description: "Verify expert witness has appropriate professional certification"
+        expected_result: "Expert witness meets court-established certification requirements"
+        test_type: "VALIDATION"
