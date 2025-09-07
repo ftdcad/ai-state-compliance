@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Shield, AlertTriangle, FileText, Users, Settings, Bell, TrendingUp, MapPin, Calendar, Filter, ExternalLink, ArrowRight, Building, Construction, Scale } from 'lucide-react';
+import { Shield, AlertTriangle, FileText, Users, Settings, Bell, TrendingUp, MapPin, Calendar, Filter, ExternalLink, ArrowRight, Building, Construction, Scale, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
@@ -144,6 +144,12 @@ const Admin: React.FC = () => {
                 </SelectContent>
               </Select>
               <ThemeToggle />
+              <Link to="/help">
+                <Button variant="outline" className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Help Guide
+                </Button>
+              </Link>
               <Button
                 variant="outline"
                 onClick={() => setAuthenticated(false)}

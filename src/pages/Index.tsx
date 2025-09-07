@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, FileText, AlertTriangle, Users, ArrowRight, Zap, Globe, Lock } from 'lucide-react';
+import { Shield, FileText, AlertTriangle, Users, ArrowRight, Zap, Globe, Lock, BookOpen } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { ThemeToggle } from '../components/ui/theme-toggle';
@@ -21,6 +21,12 @@ const Index: React.FC = () => {
               <Link to="/states">
                 <Button variant="outline" className="hidden sm:inline-flex">
                   Get Started
+                </Button>
+              </Link>
+              <Link to="/help">
+                <Button variant="outline" className="hidden sm:inline-flex">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Help Guide
                 </Button>
               </Link>
             </div>

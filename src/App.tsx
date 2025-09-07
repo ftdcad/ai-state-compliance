@@ -5,6 +5,7 @@ import Index from './pages/Index';
 import States from './pages/States';
 import Admin from './pages/Admin';
 import StateDetail from './pages/StateDetail';
+import Help from './pages/Help';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/states" element={<States />} />
           <Route path="/states/:stateCode" element={<StateDetail />} />
           <Route path="/admin/details" element={<Admin />} />
+          <Route path="/help" element={<Help />} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useSearchParams, Link } from 'react-router-dom';
-import { Shield, MessageCircle, Building, Construction, Scale, ArrowLeft, Users, Brain, FileText, Target } from 'lucide-react';
+import { Shield, MessageCircle, Building, Construction, Scale, ArrowLeft, Users, Brain, FileText, Target, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
@@ -132,6 +132,12 @@ const StateDetail: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <Link to="/help">
+                <Button variant="outline" className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Help Guide
+                </Button>
+              </Link>
               <Button 
                 onClick={() => openAIChat('general')}
                 className="bg-blue-600 hover:bg-blue-700 text-white"

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Users, FileText, ArrowRight, Shield, Search, Filter, MessageCircle, Building, Construction, Scale } from 'lucide-react';
+import { MapPin, Users, FileText, ArrowRight, Shield, Search, Filter, MessageCircle, Building, Construction, Scale, BookOpen } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { ThemeToggle } from '../components/ui/theme-toggle';
@@ -66,6 +66,12 @@ const States: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <Link to="/help">
+                <Button variant="outline" className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Help Guide
+                </Button>
+              </Link>
               <Link to="/">
                 <Button variant="outline" className="border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
                   ← Back to Home
