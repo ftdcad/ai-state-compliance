@@ -1,16 +1,16 @@
-# ⚠️ REPOSITORY ARCHIVED - CONSOLIDATED INTO legal-and-compliance-3
+# ⚠️ REPOSITORY ARCHIVED - CONSOLIDATED INTO compliance-and-legal-hub
 
 **This repository has been consolidated into the unified Compliance & Legal Hub.**
 
 ## What Happened
 
 This repository (ai-state-compliance) along with:
-- ftdcad/legal-and-compliance-3
+- ftdcad/compliance-and-legal-hub
 - ftdcad/compliance-legal-2
 
 Have been **consolidated into ONE unified system** located at:
 
-👉 **[ftdcad/legal-and-compliance-3](https://github.com/Coastal-Claims-Services/legal-and-compliance-3)**
+👉 **[ftdcad/compliance-and-legal-hub](https://github.com/Coastal-Claims-Services/compliance-and-legal-hub)**
 
 ## The New Unified System
 
@@ -35,7 +35,7 @@ The new system includes:
 **DO NOT USE THIS REPOSITORY FOR NEW WORK**
 
 All future compliance and legal development should happen in:
-**[legal-and-compliance-3](https://github.com/Coastal-Claims-Services/legal-and-compliance-3)**
+**[compliance-and-legal-hub](https://github.com/Coastal-Claims-Services/compliance-and-legal-hub)**
 
 ---
 
