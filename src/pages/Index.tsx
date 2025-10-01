@@ -57,7 +57,7 @@ const Index: React.FC = () => {
                   Start AI Session
                 </Button>
               </Link>
-              <Link to="/admin/details">
+              <Link to="/admin">
                 <Button size="lg" variant="outline" className="px-8 py-3 rounded-lg text-lg border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800">
                   <Settings className="h-5 w-5 mr-2" />
                   Admin Dashboard
